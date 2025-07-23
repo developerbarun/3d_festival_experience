@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hindu Festivals VR Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app">
+      <!-- Loading Screen -->
+      <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+          <div class="loading-spinner"></div>
+          <h2>Loading Experience...</h2>
+        </div>
+      </div>
+
+      <!-- Welcome Screen -->
+      <div id="welcome-screen" class="welcome-screen">
+        <div class="welcome-content">
+          <div class="welcome-header">
+            <h1 class="welcome-title">Hindu Festivals</h1>
+            <h2 class="welcome-subtitle">VR Experience</h2>
+            <p class="welcome-description">
+              Immerse yourself in the vibrant traditions and celebrations of India's most cherished festivals
+            </p>
+          </div>
+          <button id="enter-experience" class="enter-btn">
+            <span>Enter Experience</span>
+            <div class="btn-glow"></div>
+          </button>
+        </div>
+        <div class="welcome-bg-pattern"></div>
+      </div>
+
+      <!-- Festival Selection Menu -->
+      <div id="festival-menu" class="festival-menu hidden">
+        <div class="menu-content">
+          <h2 class="menu-title">Choose Your Festival</h2>
+          
+          <div class="menu-stats" id="menu-stats">
+            <div class="stat-item">
+              <span class="stat-icon">🎭</span>
+              <span class="stat-text">0/6 Explored</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-icon">🏆</span>
+              <span class="stat-text">0 Achievements</span>
+            </div>
+          </div>
+          
+          <div class="festivals-grid">
+            <div class="festival-card" data-festival="diwali" data-visited="false">
+              <div class="festival-icon">🪔</div>
+              <div class="festival-thumbnail">
+                <div class="thumbnail-placeholder" style="background: linear-gradient(135deg, #FFD700, #FF6B35);">
+                  <span class="thumbnail-icon">🪔</span>
+                </div>
+              </div>
+              <h3>Diwali</h3>
+              <p>Festival of Lights</p>
+              <div class="festival-highlights">
+                <span class="highlight">• Light diyas</span>
+                <span class="highlight">• Create rangoli</span>
+                <span class="highlight">• Celebrate prosperity</span>
+              </div>
+              <div class="festival-progress">
+                <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+                <span class="progress-text">Not visited</span>
+              </div>
+              <div class="visit-badge">New</div>
+            </div>
+            <div class="festival-card" data-festival="holi" data-visited="false">
+              <div class="festival-icon">🎨</div>
+              <div class="festival-thumbnail">
+                <div class="thumbnail-placeholder" style="background: linear-gradient(135deg, #FF6B9D, #4ECDC4);">
+                  <span class="thumbnail-icon">🎨</span>
+                </div>
+              </div>
+              <h3>Holi</h3>
+              <p>Festival of Colors</p>
+              <div class="festival-highlights">
+                <span class="highlight">• Throw colors</span>
+                <span class="highlight">• Dance & celebrate</span>
+                <span class="highlight">• Welcome spring</span>
+              </div>
+              <div class="festival-progress">
+                <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+                <span class="progress-text">Not visited</span>
+              </div>
+              <div class="visit-badge">New</div>
+            </div>
+            <div class="festival-card" data-festival="navratri" data-visited="false">
+              <div class="festival-icon">💃</div>
+              <div class="festival-thumbnail">
+                <div class="thumbnail-placeholder" style="background: linear-gradient(135deg, #9B59B6, #E74C3C);">
+                  <span class="thumbnail-icon">💃</span>
+                </div>
+              </div>
+              <h3>Navratri</h3>
+              <p>Nine Nights of Dance</p>
+              <div class="festival-highlights">
+                <span class="highlight">• Garba dancing</span>
+                <span class="highlight">• Honor Goddess Durga</span>
+                <span class="highlight">• Nine sacred nights</span>
+              </div>
+              <div class="festival-progress">
+                <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+                <span class="progress-text">Not visited</span>
+              </div>
+              <div class="visit-badge">New</div>
+            </div>
+            <div class="festival-card" data-festival="ganesh" data-visited="false">
+              <div class="festival-icon">🐘</div>
+              <div class="festival-thumbnail">
+                <div class="thumbnail-placeholder" style="background: linear-gradient(135deg, #F39C12, #E67E22);">
+                  <span class="thumbnail-icon">🐘</span>
+                </div>
+              </div>
+              <h3>Ganesh Chaturthi</h3>
+              <p>Lord Ganesha's Birthday</p>
+              <div class="festival-highlights">
+                <span class="highlight">• Honor Lord Ganesha</span>
+                <span class="highlight">• Remove obstacles</span>
+                <span class="highlight">• Community celebration</span>
+              </div>
+              <div class="festival-progress">
+                <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+                <span class="progress-text">Not visited</span>
+              </div>
+              <div class="visit-badge">New</div>
+            </div>
+            <div class="festival-card" data-festival="dussehra" data-visited="false">
+              <div class="festival-icon">🏹</div>
+              <div class="festival-thumbnail">
+                <div class="thumbnail-placeholder" style="background: linear-gradient(135deg, #E74C3C, #C0392B);">
+                  <span class="thumbnail-icon">🏹</span>
+                </div>
+              </div>
+              <h3>Dussehra</h3>
+              <p>Victory of Good</p>
+              <div class="festival-highlights">
+                <span class="highlight">• Good over evil</span>
+                <span class="highlight">• Rama's victory</span>
+                <span class="highlight">• Burn Ravana effigy</span>
+              </div>
+              <div class="festival-progress">
+                <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+                <span class="progress-text">Not visited</span>
+              </div>
+              <div class="visit-badge">New</div>
+            </div>
+            <div class="festival-card" data-festival="kumbh" data-visited="false">
+              <div class="festival-icon">🕉️</div>
+              <div class="festival-thumbnail">
+                <div class="thumbnail-placeholder" style="background: linear-gradient(135deg, #3498DB, #2980B9);">
+                  <span class="thumbnail-icon">🕉️</span>
+                </div>
+              </div>
+              <h3>Kumbh Mela</h3>
+              <p>Sacred Gathering</p>
+              <div class="festival-highlights">
+                <span class="highlight">• Sacred river bath</span>
+                <span class="highlight">• Spiritual gathering</span>
+                <span class="highlight">• Ancient tradition</span>
+              </div>
+              <div class="festival-progress">
+                <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+                <span class="progress-text">Not visited</span>
+              </div>
+              <div class="visit-badge">New</div>
+            </div>
+          </div>
+          
+          <div class="menu-actions">
+            <button id="back-to-welcome" class="back-btn">← Back</button>
+            <button id="show-tutorial" class="tutorial-btn">📚 Tutorial</button>
+            <button id="show-progress" class="progress-btn">🏆 Progress</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3D Canvas -->
+      <canvas id="babylon-canvas" class="babylon-canvas hidden"></canvas>
+
+      <!-- Festival Experience UI -->
+      <div id="experience-ui" class="experience-ui hidden">
+        <!-- Floating Navigation -->
+        <div class="floating-nav">
+          <button class="nav-btn" id="quick-menu" title="Quick Menu">☰</button>
+          <button class="nav-btn" id="profile-btn" title="Profile">👤</button>
+          <button class="nav-btn" id="settings-btn" title="Settings">⚙️</button>
+          <button class="nav-btn" id="help-btn" title="Help">❓</button>
+          <button class="nav-btn" id="share-btn" title="Share">📤</button>
+        </div>
+        
+        <div class="ui-top">
+          <h2 id="current-festival" class="current-festival">Diwali Experience</h2>
+          <div class="top-controls">
+            <button id="screenshot-btn" class="control-btn" title="Screenshot">📸</button>
+            <button id="menu-btn" class="menu-btn">☰</button>
+          </div>
+        </div>
+        
+        <!-- Festival-specific controls -->
+        <div class="ui-controls">
+          <button id="light-all-diyas" class="festival-control-btn" style="display: none;">
+            🪔 Light All Diyas
+          </button>
+          <button id="start-color-celebration" class="festival-control-btn" style="display: none;">
+            🎨 Start Color Celebration
+          </button>
+          <button id="start-garba-dance" class="festival-control-btn" style="display: none;">
+            💃 Start Garba Dance
+          </button>
+          <button id="start-procession" class="festival-control-btn" style="display: none;">
+            🐘 Start Procession
+          </button>
+          <button id="burn-effigy" class="festival-control-btn" style="display: none;">
+            🏹 Burn Ravana Effigy
+          </button>
+          <button id="holy-dip" class="festival-control-btn" style="display: none;">
+            🕉️ Take Holy Dip
+          </button>
+          <button id="test-all-scenes" class="festival-control-btn" style="display: none;">
+            🧪 Test All Scenes
+          </button>
+          <button id="performance-report" class="festival-control-btn" style="display: none;">
+            📊 Performance Report
+          </button>
+          <button id="accessibility-panel" class="festival-control-btn" style="display: none;">
+            ♿ Accessibility
+          </button>
+          <button id="show-cultural-info" class="festival-control-btn">
+            ℹ️ Cultural Info
+          </button>
+          <button id="festival-guide" class="festival-control-btn">
+            📖 Festival Guide
+          </button>
+        </div>
+        
+        <!-- Quick Festival Switcher -->
+        <div class="quick-switcher" id="quick-switcher" style="display: none;">
+          <div class="switcher-festivals">
+            <button class="quick-festival" data-festival="diwali">🪔</button>
+            <button class="quick-festival" data-festival="holi">🎨</button>
+            <button class="quick-festival" data-festival="navratri">💃</button>
+            <button class="quick-festival" data-festival="ganesh">🐘</button>
+            <button class="quick-festival" data-festival="dussehra">🏹</button>
+            <button class="quick-festival" data-festival="kumbh">🕉️</button>
+          </div>
+        </div>
+        
+        <div class="ui-bottom">
+          <div class="controls-hint">
+            <span class="desktop-hint">Click and drag to rotate • Scroll to zoom</span>
+            <span class="mobile-hint">Touch and drag to rotate • Pinch to zoom</span>
+          </div>
+          <div class="keyboard-shortcuts" id="keyboard-shortcuts" style="display: none;">
+            <div class="shortcuts-content">
+              <h4>Keyboard Shortcuts</h4>
+              <div class="shortcut-list">
+                <div class="shortcut-item"><kbd>ESC</kbd> Menu</div>
+                <div class="shortcut-item"><kbd>H</kbd> Help</div>
+                <div class="shortcut-item"><kbd>S</kbd> Settings</div>
+                <div class="shortcut-item"><kbd>C</kbd> Screenshot</div>
+                <div class="shortcut-item"><kbd>T</kbd> Tutorial</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@google/generative-ai@0.1.3/dist/index.umd.js"></script>
+  </body>
+</html>
